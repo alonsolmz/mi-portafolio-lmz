@@ -1,51 +1,104 @@
+"use client";
+import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
+import { useRouter } from "next/navigation";
 
-export default async function Home() {
-  // Traemos los proyectos ordenados por el más reciente
-  const { data: proyectos, error } = await supabase
-    .from("proyectos")
-    .select("*")
-    .order('id', { ascending: false });
+export default function AdminPage() {
+  const [titulo, setTitulo] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [tecs, setTecs] = useState("");
+  const [imagen, setImagen] = useState<File | null>(null);
+  const [cargando, setCargando] = useState(false);
+  const router = useRouter();
+
+  // Bloque de seguridad: Si no hay sesión, manda al login
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        router.push("/login");
+      }
+    };
+    checkUser();
+  }, [router]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setCargando(true);
+
+    try {
+      let urlImagen = "";
+
+      if (imagen) {
+        const nombreArchivo = `${Date.now()}-${imagen.name}`;
+        const { data: uploadData, error: uploadError } = await supabase.storage
+          .from("imagenes-proyectos")
+          .upload(nombreArchivo, imagen);
+
+        if (uploadError) throw uploadError;
+
+        const { data: publicUrlData } = supabase.storage
+          .from("imagenes-proyectos")
+          .getPublicUrl(nombreArchivo);
+        
+        urlImagen = publicUrlData.publicUrl;
+      }
+
+      const arrayTecs = tecs.split(",").map(t => t.trim());
+      const { error } = await supabase.from("proyectos").insert([
+        { 
+          titulo, 
+          descripcion, 
+          tecnologias: arrayTecs,
+          imagen_url: urlImagen,
+          destacado: false 
+        }
+      ]);
+
+      if (error) throw error;
+      alert("¡Proyecto guardado con éxito!");
+      setTitulo(""); setDescripcion(""); setTecs(""); setImagen(null);
+    } catch (err: any) {
+      alert("Error: " + err.message);
+    } finally {
+      setCargando(false);
+    }
+  };
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white p-6 md:p-24 font-sans">
-      <header className="max-w-6xl mx-auto mb-16">
-        <h1 className="text-6xl font-black tracking-tighter mb-4">ALONSO LMZ</h1>
-        <p className="text-zinc-500 text-xl font-light">Diseñador & Desarrollador Fullstack</p>
-      </header>
+    <div className="min-h-screen bg-black text-white p-10 font-sans">
+      <div className="max-w-xl mx-auto border border-zinc-800 p-8 rounded-[2.5rem] bg-zinc-900/30 backdrop-blur-md">
+        <div className="flex justify-between items-center mb-8">
+            <h1 className="text-2xl font-bold tracking-tighter">Panel de Control</h1>
+            <button 
+                onClick={() => supabase.auth.signOut().then(() => router.push("/login"))}
+                className="text-xs text-zinc-500 hover:text-white transition-colors"
+            >
+                Cerrar Sesión
+            </button>
+        </div>
 
-      {/* El famoso Bento Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[350px]">
-        {proyectos?.map((proyecto, index) => (
-          <div 
-            key={proyecto.id}
-            className={`group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-zinc-900/50 p-8 transition-all hover:border-white/20 
-              ${index === 0 ? "md:col-span-2 md:row-span-1" : "md:col-span-1"}`}
-          >
-            {/* Imagen de fondo con efecto hover */}
-            {proyecto.imagen_url && (
-              <img 
-                src={proyecto.imagen_url} 
-                alt={proyecto.titulo}
-                className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-all duration-700 group-hover:scale-110"
-              />
-            )}
-
-            <div className="relative z-10 h-full flex flex-col justify-end">
-              <h3 className="text-3xl font-bold mb-2 tracking-tight">{proyecto.titulo}</h3>
-              <p className="text-zinc-400 text-sm line-clamp-2 mb-4">{proyecto.descripcion}</p>
-              
-              <div className="flex flex-wrap gap-2">
-                {Array.isArray(proyecto.tecnologias) && proyecto.tecnologias.map((tec: string) => (
-                  <span key={tec} className="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase tracking-widest border border-white/10">
-                    {tec}
-                  </span>
-                ))}
-              </div>
-            </div>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+          <div className="flex flex-col gap-2">
+            <label className="text-xs text-zinc-500 ml-2">IMAGEN DEL PROYECTO</label>
+            <input type="file" accept="image/*" onChange={(e) => setImagen(e.target.files?.[0] || null)} 
+                   className="text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-zinc-800 file:text-zinc-300 hover:file:bg-zinc-700 cursor-pointer" />
           </div>
-        ))}
+
+          <input placeholder="Título del proyecto" value={titulo} onChange={(e) => setTitulo(e.target.value)} 
+                 className="bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800 outline-none focus:border-zinc-500 transition-all" required />
+          
+          <input placeholder="Tecnologías (ej: Next.js, Tailwind, Python)" value={tecs} onChange={(e) => setTecs(e.target.value)} 
+                 className="bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800 outline-none focus:border-zinc-500 transition-all" />
+          
+          <textarea placeholder="Describe tu obra..." value={descripcion} onChange={(e) => setDescripcion(e.target.value)} 
+                    className="bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800 h-32 outline-none focus:border-zinc-500 transition-all" />
+          
+          <button disabled={cargando} className="bg-white text-black font-black p-4 rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50">
+            {cargando ? "SUBIENDO..." : "PUBLICAR EN PORTAFOLIO"}
+          </button>
+        </form>
       </div>
-    </main>
+    </div>
   );
 }
