@@ -48,20 +48,37 @@ export default function AdminPanel() {
   }
 
   async function agregarProyecto() {
+  try {
     let imagen_url = "";
     if (file) {
       const fileName = `${Date.now()}-${file.name}`;
-      const { data } = await supabase.storage.from('proyectos').upload(fileName, file);
+      // Asegúrate que aquí diga 'proyectos' en minúsculas
+      const { data, error: uploadError } = await supabase.storage.from('proyectos').upload(fileName, file);
+      
+      if (uploadError) {
+        console.error("Error subiendo:", uploadError);
+        alert(`Error Storage: ${uploadError.message}`);
+        return;
+      }
+
       if (data) {
         const { data: publicUrl } = supabase.storage.from('proyectos').getPublicUrl(fileName);
         imagen_url = publicUrl.publicUrl;
       }
     }
-    await supabase.from("proyectos").insert([{ ...nuevoProy, imagen_url }]);
+
+    const { error: insertError } = await supabase.from("proyectos").insert([{ ...nuevoProy, imagen_url }]);
+    
+    if (insertError) throw insertError;
+
+    alert("Proyecto subido con éxito");
     setNuevoProy({ titulo: "", descripcion: "", github_url: "", live_url: "", tecnologias: "" });
     setFile(null);
     cargarDatos();
+  } catch (error: any) {
+    alert("Error al guardar en la tabla: " + error.message);
   }
+}
 
   async function borrarItem(tabla: string, id: number) {
     if (confirm("¿Seguro que quieres eliminarlo?")) {
