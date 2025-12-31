@@ -12,26 +12,34 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: 'Alonso Almerco | Software Engineer Portfolio', //
-  description: 'Ingeniero de Software especializado en desarrollo web con Java, Node.js y React. Explora mis proyectos y certificaciones.', //
-  alternates: {
-    canonical: 'https://alonsolmzportafolio.vercel.app/', //
-  },
+export const metadata: Metadata = {
+  title: 'Alonsolmz | Software Engineer',
+  description: 'Ingeniero de Software enfocado en desarrollo web y bases de datos. Mira mis proyectos y experiencia aquí.',
+  
+  // WhatsApp
   openGraph: {
-    title: 'Alonso Almerco | Software Engineer', //
-    description: 'Portafolio profesional de Alonso Almerco Ramirez.', //
-    url: 'https://alonsolmzportafolio.vercel.app/', //
-    siteName: 'Alonso Almerco Portfolio', //
+    title: 'Alonsolmz | Software Engineer',
+    description: 'Portafolio profesional de Alonso Almerco Ramirez.',
+    url: 'https://alonsolmzportafolio.vercel.app/',
+    siteName: 'Alonsolmz Portfolio',
     images: [
       {
-        url: '/ftportada.jpeg', // Asegúrate de que tu foto esté en la carpeta public
+        url: 'https://alonsolmzportafolio.vercel.app/ftporta.png', 
         width: 1200,
         height: 630,
+        alt: 'Alonso Almerco Portafolio',
       },
     ],
     locale: 'es_PE',
-    type: 'website', //
+    type: 'website',
+  },
+  
+  // Twitter
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Alonsolmz | Software Engineer',
+    description: 'Portafolio profesional de Alonso Almerco.',
+    images: ['https://alonsolmzportafolio.vercel.app/ftporta.png'],
   },
 }
 

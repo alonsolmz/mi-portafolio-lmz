@@ -60,7 +60,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#0b0414] text-slate-400 font-sans selection:bg-purple-500/30 relative overflow-x-hidden">
-      {/* Fondo con atmósfera Royal Amethyst */}
+      {/* Fondo Amethyst */}
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_-20%,_#1e1033_0%,_#0b0414_100%)] pointer-events-none" />
 
       <main className="relative max-w-[800px] mx-auto px-6 py-16 space-y-20">
