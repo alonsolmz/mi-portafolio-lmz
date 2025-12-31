@@ -49,7 +49,7 @@ Si estás interesado en mi perfil o quieres charlar sobre tecnología, puedes en
 
 - **LinkedIn:** [alonso-almerco](https://www.linkedin.com/in/alonso-almerco-27b8a1313/)
 - **GitHub:** [@alonsolmz](https://github.com/alonsolmz)
-- **Email:** [Tu correo aquí]
+- **Email:** [alonsoalmerco425@gmail.com]
 
 ---
 Proyecto desarrollado por **Alonso Almerco Ramirez** • 2025
