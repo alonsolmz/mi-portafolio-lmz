@@ -77,18 +77,22 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              <a href="/CV_ALONSO.pdf" className="flex items-center gap-2 px-4 py-2 bg-[#c084fc] text-[#0b0414] rounded-lg font-bold text-[10px] uppercase tracking-wider transition-all hover:bg-[#d8b4fe] hover:scale-105 shadow-[0_0_20px_rgba(192,132,252,0.3)]">
-                <FileText size={14} /> {lang === 'es' ? 'Descargar CV' : 'Download CV'}
+              <a href="/CV_Alonsolmz.pdf" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-[#c084fc] text-[#0b0414] rounded-lg font-bold text-[10px] uppercase tracking-wider transition-all hover:bg-[#d8b4fe] hover:scale-105 shadow-[0_0_20px_rgba(192,132,252,0.3)]">
+              <FileText size={14} /> {lang === 'es' ? 'Descargar CV' : 'Download CV'}
               </a>
               <div className="flex gap-2">
-                <a href="#" className="p-2 bg-white/5 border border-white/10 rounded-lg hover:bg-purple-500/10 hover:border-purple-500/30 transition-all group">
-                  <Linkedin size={16} className="group-hover:text-purple-400" />
+                <a href="https://www.linkedin.com/in/alonso-almerco-27b8a1313/" target="_blank" rel="noopener noreferrer"
+                className="p-2 bg-white/5 border border-white/10 rounded-lg hover:bg-purple-500/10 hover:border-purple-500/30 transition-all group">
+                <Linkedin size={16} className="group-hover:text-purple-400" />
                 </a>
-                <a href="#" className="p-2 bg-white/5 border border-white/10 rounded-lg hover:bg-purple-500/10 hover:border-purple-500/30 transition-all group">
-                  <Github size={16} className="group-hover:text-purple-400" />
+                <a href="https://github.com/alonsolmz" target="_blank" rel="noopener noreferrer" 
+                className="p-2 bg-white/5 border border-white/10 rounded-lg hover:bg-purple-500/10 hover:border-purple-500/30 transition-all group">
+                <Github size={16} className="group-hover:text-purple-400" />
                 </a>
-                <button onClick={() => setLang(lang === 'es' ? 'en' : 'es')} className="px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-[10px] font-bold uppercase hover:bg-purple-500/10 text-purple-200 transition-all">
-                  {lang}
+                <button onClick={() => setLang(lang === 'es' ? 'en' : 'es')} 
+                className="px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-[10px] font-bold uppercase hover:bg-purple-500/10 text-purple-200 transition-all"
+                >{lang}
                 </button>
               </div>
             </div>
