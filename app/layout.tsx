@@ -12,13 +12,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: 'Alonso Almerco | Software Engineer',
-  description: 'Portafolio profesional de Alonso Almerco Ramirez',
-  verification: {
-    google: '<meta name="google-site-verification" content="O8dDiF-EDZIsYPFFBJJNiw5v313iwo9HSiGAPOJEPag" />',
+export const metadata = {
+  title: 'Alonso Almerco | Software Engineer Portfolio', //
+  description: 'Ingeniero de Software especializado en desarrollo web con Java, Node.js y React. Explora mis proyectos y certificaciones.', //
+  alternates: {
+    canonical: 'https://alonsolmzportafolio.vercel.app/', //
   },
-};
+  openGraph: {
+    title: 'Alonso Almerco | Software Engineer', //
+    description: 'Portafolio profesional de Alonso Almerco Ramirez.', //
+    url: 'https://alonsolmzportafolio.vercel.app/', //
+    siteName: 'Alonso Almerco Portfolio', //
+    images: [
+      {
+        url: '/ftportada.jpeg', // Asegúrate de que tu foto esté en la carpeta public
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'es_PE',
+    type: 'website', //
+  },
+}
 
 export default function RootLayout({
   children,
