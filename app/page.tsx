@@ -24,10 +24,10 @@ const DATA = {
   ],
   proyectos: [
     { 
-      titulo: "Próximamente", 
-      link: "#",
-      desc: "Proyecto en desarrollo enfocado en soluciones de arquitectura de software modernas.", 
-      tech: ["Next.js", "Tailwind"] 
+      titulo: "Sistema de Lógica Orientada a Objetos", 
+      link: "https://github.com/alonsolmz/java-opp-core",
+      desc: "Implementación de pilares de POO (Herencia, Polimorfismo, Encapsulamiento) para resolver problemas de lógica y gestión de datos.", 
+      tech: ["Java", "JUnit","Maven"] 
     }
   ],
   certificaciones: [
@@ -35,6 +35,8 @@ const DATA = {
   ],
   habilidades: [
     { name: "TypeScript", icon: <Code2 size={12}/> },
+    { name: "HTML", icon: <Code2 size={12}/> },
+    { name: "JavaScript", icon: <Code2 size={12}/> },
     { name: "Java", icon: <Cpu size={12}/> },
     { name: "SQL", icon: <Database size={12}/> },
     { name: "Git", icon: <Terminal size={12}/> },
