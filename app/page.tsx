@@ -134,25 +134,35 @@ export default function Home() {
         </section>
 
         {/* PROYECTOS */}
-        <section className="space-y-6">
-          <h3 className="text-2xl font-bold text-[#c084fc] uppercase tracking-tight">{t.projects}</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {DATA.proyectos.map((proy, i) => (
-              <div key={i} className="p-5 rounded-xl bg-purple-950/5 border border-purple-500/10 hover:border-purple-500/30 hover:bg-purple-950/10 transition-all flex flex-col justify-between h-full group">
-                <div>
-                  <div className="flex justify-between items-center mb-3">
-                    <h4 className="text-white text-sm font-bold uppercase tracking-wide group-hover:text-purple-300 transition-colors">{proy.titulo}</h4>
-                    <Github size={14} className="text-purple-500/40 group-hover:text-purple-400" />
-                  </div>
-                  <p className="text-[13px] text-slate-500 leading-relaxed mb-5">{proy.desc}</p>
-                </div>
-                <div className="flex flex-wrap gap-1.5 mt-auto">
-                  {proy.tech.map((t, j) => <TechTag key={j} name={t} />)}
-                </div>
-              </div>
-            ))}
+<section className="space-y-6">
+  <h3 className="text-2xl font-bold text-[#c084fc] uppercase tracking-tight">{t.projects}</h3>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {DATA.proyectos.map((proy, i) => (
+      <div key={i} className="p-5 rounded-xl bg-purple-950/5 border border-purple-500/10 hover:border-purple-500/30 hover:bg-purple-950/10 transition-all flex flex-col justify-between h-full group">
+        <div>
+          <div className="flex justify-between items-center mb-3">
+            {/* ENVOLVEMOS EL TÍTULO E ICONO EN UN LINK */}
+            <a 
+              href={proy.link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex justify-between items-center w-full group/link"
+            >
+              <h4 className="text-white text-sm font-bold uppercase tracking-wide group-hover/link:text-purple-300 transition-colors">
+                {proy.titulo}
+              </h4>
+              <Github size={14} className="text-purple-500/40 group-hover/link:text-purple-400 transition-colors" />
+            </a>
           </div>
-        </section>
+          <p className="text-[13px] text-slate-500 leading-relaxed mb-5">{proy.desc}</p>
+        </div>
+        <div className="flex flex-wrap gap-1.5 mt-auto">
+          {proy.tech.map((t, j) => <TechTag key={j} name={t} />)}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
         {/* CERTIFICACIONES */}
         <section className="space-y-6">
