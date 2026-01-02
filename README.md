@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🦖 Alonso Almerco | Software Engineer Portfolio
 
-## Getting Started
+¡Bienvenido a mi portafolio profesional! Este proyecto es una aplicación web moderna, minimalista y de alto rendimiento, diseñada con una estética **Royal Amethyst** (Amatista Real) para destacar mi trayectoria como Ingeniero de Software.
 
-First, run the development server:
+🚀 **Link del proyecto:** [https://alonsolmzportafolio.vercel.app/](https://alonsolmzportafolio.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Diseño y Concepto
+El portafolio utiliza una paleta de colores basada en tonos violetas profundos y acentos amatista (`#c084fc`), optimizada para pantallas OLED y diseñada para ofrecer una experiencia de usuario (UX) fluida y elegante.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Características principales:**
+- **Full Responsive:** Adaptado perfectamente para dispositivos móviles, tablets y escritorio.
+- **Multilenguaje:** Soporte completo para Español e Inglés.
+- **Dark Mode Native:** Estética oscura para reducir la fatiga visual.
+- **SEO Optimized:** Configurado para aparecer en los primeros resultados de búsqueda.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tecnologías Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** [Next.js 14+](https://nextjs.org/) (App Router)
+- **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+- **Iconografía:** [Lucide React](https://lucide.dev/)
+- **Despliegue:** [Vercel](https://vercel.com/)
+- **Lenguaje:** TypeScript / JavaScript
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📈 Rendimiento y SEO
+Este sitio ha sido optimizado siguiendo las mejores prácticas de Google:
+- **Core Web Vitals:** Puntuación de 100/100 en SEO y Prácticas Recomendadas según PageSpeed Insights.
+- **Indexación:** Verificado en Google Search Console.
+- **Open Graph:** Configurado para mostrar vistas previas con imagen en WhatsApp, LinkedIn y Twitter.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📂 Estructura del Proyecto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/app`: Lógica principal y componentes de la interfaz.
+- `/public`: Activos estáticos como el CV, imágenes y archivos de configuración (favicon, robots.txt).
+- `/components`: Elementos reutilizables del sistema de diseño.
+
+---
+
+## 👤 Contacto
+
+Si estás interesado en mi perfil o quieres charlar sobre tecnología, puedes encontrarme en:
+
+- **LinkedIn:** [alonso-almerco](https://www.linkedin.com/in/alonso-almerco-27b8a1313/)
+- **GitHub:** [@alonsolmz](https://github.com/alonsolmz)
+- **Email:** [alonsoalmerco425@gmail.com]
+
+---
+Proyecto desarrollado por **Alonso Almerco Ramirez** • 2025
