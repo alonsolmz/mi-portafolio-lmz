@@ -141,7 +141,7 @@ export default function Home() {
       <div key={i} className="p-5 rounded-xl bg-purple-950/5 border border-purple-500/10 hover:border-purple-500/30 hover:bg-purple-950/10 transition-all flex flex-col justify-between h-full group">
         <div>
           <div className="flex justify-between items-center mb-3">
-            {/* ENVOLVEMOS EL TÍTULO E ICONO EN UN LINK */}
+            {}
             <a 
               href={proy.link} 
               target="_blank" 
