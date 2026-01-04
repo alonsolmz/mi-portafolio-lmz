@@ -28,6 +28,12 @@ const DATA = {
       link: "https://github.com/alonsolmz/java-opp-core",
       desc: "Implementación de pilares de POO (Herencia, Polimorfismo, Encapsulamiento) para resolver problemas de lógica y gestión de datos.", 
       tech: ["Java", "JUnit","Maven"] 
+    },
+     { 
+      titulo: "Pagina Web MaquiPeru", 
+      link: "https://github.com/alonsolmz/pagewebmaquiperu",
+      desc: "Pagina web para empresa MaquiPeru, dedicada a la venta de maquinaria pesada.", 
+      tech: ["Astro", "JavaScript","CSS"] 
     }
   ],
   certificaciones: [
@@ -41,7 +47,8 @@ const DATA = {
     { name: "SQL", icon: <Database size={12}/> },
     { name: "Git", icon: <Terminal size={12}/> },
     { name: "Python", icon: <Code2 size={12}/> },
-    { name: "CSS", icon: <Code2 size={12}/> }
+    { name: "CSS", icon: <Code2 size={12}/> },
+    { name: "Astro", icon: <Code2 size={12}/> }
   ],
 };
 
