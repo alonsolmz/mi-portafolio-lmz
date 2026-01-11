@@ -34,6 +34,12 @@ const DATA = {
       link: "https://github.com/alonsolmz/pagewebmaquiperu",
       desc: "Pagina web para empresa MaquiPeru, dedicada a la venta de maquinaria pesada.", 
       tech: ["Astro", "JavaScript","CSS"] 
+    },
+    {
+      titulo: "Proyecto n8n bot telegram",
+      link: "https://github.com/alonsolmz/n8n-bot-noticias",
+      desc: "Bot de telegram conectado a groq via n8n que devuelve las noticias del dia"
+      , tech: ["n8n", "Telegram API", "Groq"]
     }
   ],
   certificaciones: [
