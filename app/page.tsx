@@ -41,6 +41,12 @@ const DATA = {
       link: "https://github.com/alonsolmz/java-opp-core",
       desc: "Gestión eficiente de datos aplicando pilares fundamentales de POO para la resolución de problemas lógicos escalables.", 
       tech: ["Java", "JUnit","Maven"] 
+    },
+    { 
+      titulo: "Predictor de Churn con IA", 
+      link: "https://github.com/alonsolmz/customer-churn-prediction",
+      desc: "Solución de IA que identifica patrones en clientes para predecir quiénes tienen mayor probabilidad de cancelar su servicio para generar alertas tempranas.", 
+      tech: ["Python", "Pandas","NumPy","Scikit-Learn","Seaborn", "Matplotlib"] 
     }
   ],
   certificaciones: [
