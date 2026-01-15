@@ -50,7 +50,8 @@ const DATA = {
     }
   ],
   certificaciones: [
-    {}
+    {name: "Introduction to Data Science", link: "https://www.credly.com/users/alonsolmz/badges#credly"},
+    {name: "Certification to Python", link: "https://www.freecodecamp.org/certification/alonsolmz/python-v9"},
   ],
   habilidades: [
     { name: "Python", icon: <BrainCircuit size={12}/> },
@@ -185,6 +186,28 @@ export default function Home() {
                 <span className="text-purple-500/60 group-hover:text-purple-400 transition-colors">{skill.icon}</span>
                 <span className="text-[11px] font-bold text-slate-400 group-hover:text-purple-100 uppercase tracking-tight">{skill.name}</span>
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CERTIFICACIONES (SECCIÓN NUEVA AÑADIDA) */}
+        <section className="space-y-6">
+          <h3 className="text-2xl font-bold text-[#c084fc] uppercase tracking-tight">{t.certs}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {DATA.certificaciones.map((cert, i) => (
+              <a 
+                key={i} 
+                href={cert.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:border-purple-500/40 hover:bg-purple-500/5 transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <Award className="text-purple-500 group-hover:scale-110 transition-transform" size={18} />
+                  <span className="text-sm font-medium text-slate-300 group-hover:text-white transition-colors">{cert.name}</span>
+                </div>
+                <ExternalLink size={14} className="text-slate-600 group-hover:text-purple-400" />
+              </a>
             ))}
           </div>
         </section>
