@@ -6,6 +6,14 @@ import {
   ExternalLink, Award, Code2, Terminal, Database, Cpu, BrainCircuit, BarChart3
 } from "lucide-react";
 
+type Experiencia = {
+  empresa: string;
+  periodo: string;
+  puesto: string;
+  desc: string;
+  tech: string[];
+};
+
 const DATA = {
   nombre: "Alonso Almerco Ramirez",
   ubicacion: "Lima, Perú",
@@ -13,29 +21,8 @@ const DATA = {
     es: "Ingeniero de Software enfocado en transformar datos complejos en soluciones estratégicas mediante Machine Learning y analítica avanzada. Mi enfoque combina la robustez de la ingeniería con la visión analítica para optimizar procesos y predecir tendencias.",
     en: "Software Engineer focused on transforming complex data into strategic solutions through Machine Learning and advanced analytics. My approach combines engineering robustness with analytical vision to optimize processes and predict trends."
   },
-  experiencia: [
-    { 
-      empresa: "JNM", 
-      puesto: "Data Analyst & Database Administrator", 
-      periodo: "2024",
-      desc: "Optimicé la toma de decisiones gerenciales mediante la creación de tableros en Power BI y análisis estadístico en Excel. Aseguré la integridad de datos críticos operativos (ventas, stock y pagos) mediante auditorías SQL.",
-      tech: ["Python", "SQL", "Power BI", "Excel Avanzado", "Java"]
-    },
-    { 
-      empresa: "FALUC", 
-      puesto: "Junior Data Engineer / SQL Admin", 
-      periodo: "2023",
-      desc: "Diseñé y mantuve arquitecturas de bases de datos para proyectos internos, garantizando la seguridad y alta disponibilidad de información crítica corporativa.",
-      tech: ["SQL", "MySQL", "Excel"]
-    },
-  ],
+  experiencia: [] as Experiencia[],
   proyectos: [
-    { 
-      titulo: "Analizador de Noticias con IA (n8n + LLM)", 
-      link: "https://github.com/alonsolmz/n8n-bot-noticias",
-      desc: "Flujo de automatización que utiliza n8n para conectar Telegram con Groq (IA), entregando resúmenes de noticias diarias procesadas por lenguaje natural.", 
-      tech: ["n8n", "Groq AI", "Telegram API"] 
-    },
     { 
       titulo: "Sistema de Lógica Orientada a Objetos", 
       link: "https://github.com/alonsolmz/java-opp-core",
@@ -59,15 +46,12 @@ const DATA = {
     { name: "Análisis de Datos", icon: <BarChart3 size={12}/> },
     { name: "Java", icon: <Cpu size={12}/> },
     { name: "Git", icon: <Terminal size={12}/> },
-    { name: "TypeScript", icon: <Code2 size={12}/> },
-    { name: "n8n Automation", icon: <Cpu size={12}/> },
-    { name: "Power BI", icon: <BarChart3 size={12}/> }
   ],
 };
 
 const translations = {
-  es: { role: "INGENIERO DE SOFTWARE | DATA ANALYST & ML SPECIALIST", work: "EXPERIENCIA PROFESIONAL", projects: "PROYECTOS", skills: "SKILLS", certs: "CERTIFICACIONES", about: "PERFIL PROFESIONAL" },
-  en: { role: "SOFTWARE ENGINEER | DATA ANALYST & ML SPECIALIST", work: "PROFESSIONAL EXPERIENCE", projects: "PROJECTS", skills: "TECHNICAL STACK", certs: "CERTIFICATIONS", about: "PROFESSIONAL PROFILE" }
+  es: { role: "INGENIERO DE SOFTWARE", work: "EXPERIENCIA PROFESIONAL", projects: "PROYECTOS", skills: "SKILLS", certs: "CERTIFICACIONES", about: "PERFIL PROFESIONAL" },
+  en: { role: "SOFTWARE ENGINEER", work: "PROFESSIONAL EXPERIENCE", projects: "PROJECTS", skills: "TECHNICAL STACK", certs: "CERTIFICATIONS", about: "PROFESSIONAL PROFILE" }
 };
 
 export default function Home() {
